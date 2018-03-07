@@ -7,9 +7,15 @@
 <body>
 
 
-<h1>Thanks, sucker!</h1>
-<p>Information has been recorded!</p>
+
+
 <?php
+
+	if(isset($_POST["name"]) && $_POST["name"] != "" && 
+isset($_POST["section_num"]) && $_POST["section_num"] != "(Select a selection)" &&
+		isset($_POST["cc_num"]) && $_POST["cc_num"] != "" &&
+		isset($_POST["cc"]) && $_POST["cc"] != ""){
+
 	$name = $_POST["name"];
 	$section = $_POST["section_num"];
 	$credit_card_num = $_POST["cc_num"];
@@ -20,8 +26,10 @@
 	
 	file_put_contents($file, $line, FILE_APPEND);
 
-?>
 
+?>
+<h1>Thanks, sucker!</h1>
+<p>Information has been recorded!</p>
 <dl>
 	<dt>Name</dt>
 	<dd><?php echo $name ?></dd>
@@ -38,7 +46,12 @@
 	$file = file_get_contents("suckers.txt");
 	echo "<pre>".$file."</pre>";
 ?>
-
+<?php  
+}else{ ?><h1>Sorry</h1><?php 
+		echo "You didn't fill out the form copmpletely!";?><a href="buyagrade.html"> Try again?</a>
+		<?php
+	}
+?>
 
 </body>
 </html>
