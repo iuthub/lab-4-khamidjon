@@ -7,13 +7,18 @@
 <body>
 
 
-<h1>Thanks, sucker!</h1><br/>
+<h1>Thanks, sucker!</h1>
 <p>Information has been recorded!</p>
 <?php
-	$name = $_GET["name"];
-	$section = $_GET["section_num"];
-	$credit_card_num = $_GET["cc_num"];
-	$cCard = $_GET["cc"];
+	$name = $_POST["name"];
+	$section = $_POST["section_num"];
+	$credit_card_num = $_POST["cc_num"];
+	$cCard = $_POST["cc"];
+
+	$file = 'suckers.txt';
+	$line = $name.";".$section.";".$credit_card_num.";".$cCard.PHP_EOL;
+	
+	file_put_contents($file, $line, FILE_APPEND);
 
 ?>
 
@@ -27,6 +32,12 @@
 	<dt>Credit Card</dt>
 	<dd><?php echo $credit_card_num ?> (<?php echo $cCard ?>)</dd>
 </dl>
+
+<p>Here all suckers who have submitted here:</p>
+<?php
+	$file = file_get_contents("suckers.txt");
+	echo "<pre>".$file."</pre>";
+?>
 
 
 </body>
