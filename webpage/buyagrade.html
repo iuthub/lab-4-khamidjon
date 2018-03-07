@@ -15,25 +15,40 @@
 		<hr />
 		
 		<h2>Give Us Your Money</h2>
+		<form action="" method="post">
 		<dl>
 			<dt>Name</dt>
 			<dd>
-				???
+				<input type="text" name="name" value=""/>
 			</dd>
 			
 			<dt>Section</dt>
 			<dd>
-				???
+				<select name="section_num">
+					<option>(Select a selection)</option>
+					<option>MA</option>
+					<option>MB</option>
+					<option>MC</option>
+					<option>MD</option>
+					<option>ME</option>
+					<option>MF</option>
+					<option>MG</option>
+					<option>MH</option>
+				</select>
 			</dd>
 			
 			<dt>Credit Card</dt>
 			<dd>
-				???
+				<input type="text" name="credit_card"/><br/>
+				<input type="radio" name="cc" value="Visa"/>Visa
+				<input type="radio" name="cc" value="MasterC"/>Master Card
 			</dd>
 		</dl>
 		
 		<div>
-			I am a giant sucker.
+			<input type="submit" value="I am a giant sucker"/>
 		</div>
+
+	</form>
 	</body>
 </html>
